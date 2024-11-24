@@ -1,14 +1,14 @@
 package africa.semicolon.packageApplication.services.implementations;
 
 import africa.semicolon.packageApplication.data.models.Package;
-import africa.semicolon.packageApplication.data.models.Receiver;
 import africa.semicolon.packageApplication.data.repositories.PackageRepository;
 import africa.semicolon.packageApplication.dtos.requests.CreatePackageRequest;
+import africa.semicolon.packageApplication.dtos.requests.CreateReceiverRequest;
 import africa.semicolon.packageApplication.dtos.responses.CreatePackageResponse;
 import africa.semicolon.packageApplication.services.interfaces.PackageService;
 import africa.semicolon.packageApplication.services.interfaces.ReceiverService;
 import africa.semicolon.packageApplication.services.interfaces.SenderService;
-import com.sun.jdi.connect.spi.TransportService;
+import africa.semicolon.packageApplication.services.interfaces.TrackingLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class PackageServiceImpl implements PackageService {
     @Autowired
     private SenderService senderService;
     @Autowired
-    private TrackingLogServicesImpl trackingLogServices;
+    private TrackingLogService trackingLogServices;
 
 
     @Override
@@ -32,10 +32,14 @@ public class PackageServiceImpl implements PackageService {
         newPackage.setDescription(createPackageRequest.getDescription());
         newPackage.setQuantity(createPackageRequest.getQuantity());
         newPackage.setDeliveryFee(createPackageRequest.getDeliveryFee());
-//        newPackage.setTrackingLogList(createPackageRequest.getTrackingLog());
-//        newPackage.setReceiverId(createPackageRequest.getReceiverId());
-//        newPackage.setSenderId(createPackageRequest.getSenderId());
 
+        //task ha been delegated to the package request outside the package
+        newPackage.setReceiverId(createPackageRequest.getReceiverId());
+        newPackage.setSenderId(createPackageRequest.getSenderId());
+        newPackage.setTheListOfTrackingLog(createPackageRequest.getTrackingLog());
+
+
+        //i will still map the response here
         packageRepository.save(newPackage);
         CreatePackageResponse response = new CreatePackageResponse();
         return response;

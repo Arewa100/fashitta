@@ -22,4 +22,5 @@ public class CreatePackageRequest {
     private String id;
     private BigDecimal deliveryFee = new BigDecimal(0);
     private int quantity;
+
 }

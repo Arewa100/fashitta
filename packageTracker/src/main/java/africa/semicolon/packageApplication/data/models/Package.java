@@ -26,4 +26,8 @@ public class Package {
     private BigDecimal deliveryFee = new BigDecimal(0);
     private int quantity;
 
+    public void setTheListOfTrackingLog(TrackingLog trackingLogList) {
+        this.trackingLogList.add(trackingLogList);
+    }
+
 }
