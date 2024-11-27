@@ -1,5 +1,6 @@
 package africa.semicolon.packageApplication.dtos.requests;
 
+import africa.semicolon.packageApplication.data.models.Package;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -7,5 +8,5 @@ import java.time.LocalDateTime;
 public class CreateTrackLogRequest {
     private String description;
     private String TrackingNumber;
-//    private LocalDateTime TrackingDate = LocalDateTime.now();
+    private Package newPackage;
 }

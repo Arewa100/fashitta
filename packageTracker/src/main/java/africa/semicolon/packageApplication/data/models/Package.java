@@ -17,7 +17,6 @@ public class Package {
     private String description;
     @DBRef
     private Receiver receiverId;
-    private List<TrackingLog> trackingLogList = new ArrayList<>();
     @DBRef
     private Sender senderId;
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -25,9 +24,4 @@ public class Package {
     private String id;
     private BigDecimal deliveryFee = new BigDecimal(0);
     private int quantity;
-
-    public void setTheListOfTrackingLog(TrackingLog trackingLogList) {
-        this.trackingLogList.add(trackingLogList);
-    }
-
 }

@@ -1,17 +1,12 @@
 package africa.semicolon.packageApplication.services.implementations;
 
-import africa.semicolon.packageApplication.data.models.TrackingLog;
 import africa.semicolon.packageApplication.data.repositories.PackageRepository;
 import africa.semicolon.packageApplication.dtos.requests.CreatePackageRequest;
-import africa.semicolon.packageApplication.dtos.requests.CreateTrackLogRequest;
-import africa.semicolon.packageApplication.dtos.requests.CreateTrackingLogRequest;
-import africa.semicolon.packageApplication.dtos.responses.CreateTrackLogResponse;
 import africa.semicolon.packageApplication.services.interfaces.PackageService;
 import africa.semicolon.packageApplication.services.interfaces.TrackingLogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
@@ -35,10 +30,10 @@ public class PackageServiceImplTest {
         packageRepository.deleteAll();
     }
     @Test
-    public void testToCreateAPackage_PackageRepository_IsOne() {
+    public void testToAddAPackage_PackageRepository_IsOne() {
         CreatePackageRequest request = new CreatePackageRequest();
         request.setPackageName("television");
-        request.setDescription("this is a 23 inches lg TV");
+        request.setPackageDescription("this is a 23 inches lg TV");
         request.setDeliveryFee(new BigDecimal(20000));
         request.setQuantity(20);
         packageService.createPackage(request);

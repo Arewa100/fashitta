@@ -17,12 +17,9 @@ public class ReceiverServiceImpl implements ReceiverService {
 
     @Override
     public CreateReceiverResponse createReceiver(CreateReceiverRequest createReceiverRequest) {
-        Receiver receiver = new Receiver();
-        receiverRequestMap(receiver, createReceiverRequest);
+        Receiver receiver = map(createReceiverRequest);
         receiverRepository.save(receiver);
-        CreateReceiverResponse createReceiverResponse = new CreateReceiverResponse();
-        receiverResponseMapper(receiver, createReceiverResponse);
-        return createReceiverResponse;
+        return map(receiver);
     }
 
 }

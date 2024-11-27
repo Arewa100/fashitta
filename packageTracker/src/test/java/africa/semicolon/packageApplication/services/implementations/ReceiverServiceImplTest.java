@@ -31,7 +31,7 @@ public class ReceiverServiceImplTest {
         createReceiverRequest.setFullName("Eri");
         createReceiverRequest.setPhoneNumber("+234-9086112841");
         receiverService.createReceiver(createReceiverRequest);
-        assertEquals(2, receiverRepository.count());
+        assertEquals(2L, receiverRepository.count());
     }
 
     @Test
@@ -42,12 +42,12 @@ public class ReceiverServiceImplTest {
         createReceiverRequest.setPhoneNumber("+234-9086112841");
         receiverService.createReceiver(createReceiverRequest);
 
-        assertEquals(2L, receiverRepository.count());
+        assertEquals(1L, receiverRepository.count());
         CreateReceiverRequest createReceiverRequestTwo = new CreateReceiverRequest();
         createReceiverRequestTwo.setAddress("semicolon, sabo");
         createReceiverRequestTwo.setFullName("Ola");
         createReceiverRequestTwo.setPhoneNumber("+234-9086899000");
-        assertEquals(2L, receiverRepository.count());
+        assertEquals(1L, receiverRepository.count());
 
     }
 

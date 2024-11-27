@@ -15,12 +15,18 @@ import java.util.List;
 @Data
 public class CreatePackageRequest {
     private String packageName;
-    private String description;
-    private Receiver receiverId;
-    private TrackingLog trackingLog;
-    private Sender senderId;
+    private String packageDescription;
     private String id;
-    private BigDecimal deliveryFee = new BigDecimal(0);
     private int quantity;
+    private Receiver receiverId;
+    private String receiverName;
+    private String receiverPhoneNumber;
+    private String receiverAddress;
+    private Sender senderId;
+    private String senderName;
+    private String senderPhoneNumber;
+    private BigDecimal deliveryFee;
+    private String trackingDescription;
+    private String TrackingNumber;
 
 }
